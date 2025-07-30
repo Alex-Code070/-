@@ -8,10 +8,8 @@ def merge_files_by_line_count(input_files, output_file):
             lines = f.readlines()
             files_data.append((filename, len(lines), lines))
 
-    # Сортируем по количеству строк
     files_data.sort(key=lambda x: x[1])
 
-    # Записываем в итоговый файл
     with open(output_file, 'w', encoding='utf-8') as result:
         for name, count, content in files_data:
             result.write(f"{name}\n")
@@ -19,8 +17,8 @@ def merge_files_by_line_count(input_files, output_file):
             result.writelines(content)
             result.write('\n')
 
-# Пример использования:
+# Пример
 if __name__ == '__main__':
-    input_files = ['1.txt', '2.txt', '3.txt']  # Замените на свои реальные имена
+    input_files = ['1.txt', '2.txt', '3.txt']
     output_file = 'result.txt'
     merge_files_by_line_count(input_files, output_file)
